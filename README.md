@@ -1,68 +1,25 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Jebrii's Markov Text Generator
 
-## Available Scripts
+This is a very simple implementation of "AI" that I made for fun.
 
-In the project directory, you can run:
+Using an example text, this tool can randomly generate text that mimics the patterns in human language.
 
-### `npm start`
+## Versions
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+There are multiple ways to view this tool.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### The Web App
 
-### `npm test`
+To make this more fun, I skinned it with a React app. Run it with `npm start` and it will port to your `localhost:3000`.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The app should be more or less self-explanatory. The goal is to build a sample of text substantial enough to generate meaningful text.
 
-### `npm run build`
+### Standalone (CL)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+In the root directory of this project is a file called `markovTextGen.js`. This is the foundation for the app. If you want to use it alone, you can edit to file to enter a value for the `sampleText` variable, then run it with `$node markovTextGen.js`.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Sample Text
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Sample text is a large string (or strings) of sample human language. The more sample text available to the generator, the more unique the generated text will be. A short sample text will often result in meaningless or looped text.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Note that the sample text must contain only the letters [A-z].
