@@ -5,16 +5,15 @@ const SampleTextAdder = ({
   sampleTexts,
   setSampleTexts
 }) => {
-  console.log("🚀 ~ file: SampleTextAdder.js ~ line 8 ~ sampleTexts", sampleTexts)
   const [textToAdd, setTextToAdd] = useState('')
-  console.log("🚀 ~ file: SampleTextAdder.js ~ line 10 ~ textToAdd", textToAdd)
   const addSampleText = (text) => {
     const newSampleTexts = [...sampleTexts, text]
     setTextToAdd('')
     setSampleTexts(newSampleTexts)
   }
   const removeSampleText = (index) => {
-    const newSampleTexts = sampleTexts.splice(index, 1)
+    const newSampleTexts = [...sampleTexts]
+    newSampleTexts.splice(index, 1)
     setSampleTexts(newSampleTexts)
   }
 
@@ -34,8 +33,9 @@ const SampleTextAdder = ({
         <Typography>Sample Texts</Typography>
         <TextRegion>
           {sampleTexts.map((text, index) => (<>
-            <Typography>{text}</Typography>
+            <Typography key={`sample-text-${index}`}>{text}</Typography>
             <Button
+              key={`remove-button-${index}`}
               onClick={() => removeSampleText(index)}
             >Remove</Button>
           </>))}

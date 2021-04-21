@@ -53,7 +53,6 @@ export const TextInput = ({
   ...restOfProps
 }) => {
   const id = genId()
-  console.log("🚀 ~ id for ", label, ": ", id)
 
   return (
     <div style={styles.textInputContainer}>
