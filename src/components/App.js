@@ -3,18 +3,14 @@ import React, { useEffect, useState } from 'react'
 import SampleTextAdder from './SampleTextAdder'
 
 import { generateRandomStartString, generateText } from '../utils/generateText'
-import { Button, TextInput, Dropdown, Header, colors, TextRegion } from './Common'
+import { Button, TextInput, Header, colors, TextRegion, Typography } from './Common'
 
 const App = () => {
   // == State ==
   const [numSentences, setNumSentences] = useState('1')
-  console.log("🚀 ~ file: App.js ~ line 11 ~ App ~ numSentences", numSentences)
   const [markovOrder, setMarkovOrder] = useState('4')
-  console.log("🚀 ~ file: App.js ~ line 13 ~ App ~ markovOrder", markovOrder)
   const [sampleTexts, setSampleTexts] = useState([])
-  console.log("🚀 ~ file: App.js ~ line 15 ~ App ~ sampleTexts", sampleTexts)
   const [startString, setStartString] = useState('The ')
-  console.log("🚀 ~ file: App.js ~ line 17 ~ App ~ startString", startString)
   const [maxLength, setMaxLength] = useState(999)
   const [generatedText, setGeneratedText] = useState('')
 
@@ -62,15 +58,25 @@ const App = () => {
           label="Markov Order"
           value={markovOrder}
           onChange={(e) => setMarkovOrder(e.target.value)}
-          /> {/* TODO: Hoverable here to explain markov order*/}
+        /> {/* TODO: Hoverable here to explain markov order*/}
+        <div style={{
+          display: 'flex',
+          alignItems: 'flex-end'
+        }}>
+          <TextInput
+            label="Start String"
+            value={startString}
+            onChange={(e) => setStartString(e.target.value)}
+          />
+          <Button
+            onClick={generateStartString}
+          >Randomize</Button>  
+        </div>
         <TextInput
-          label="Start String"
-          value={startString}
-          onChange={(e) => setStartString(e.target.value)}
+          label="Max Output Length"
+          value={maxLength}
+          onChange={(e) => setMaxLength(e.target.value)}
         />
-        <Button
-          onClick={generateStartString}
-        >Randomize</Button>
 
       </div>
       <div>
@@ -83,7 +89,7 @@ const App = () => {
             primary
           >Generate!</Button>
         </div>
-
+        <Typography>Output</Typography>
         <TextRegion>{generatedText}</TextRegion>
       </div>
     </div>
@@ -97,7 +103,9 @@ const styles = {
     diplay: 'flex'
   },
   optionsContainer: {
-
+    display: 'flex',
+    flexFlow: 'row wrap',
+    justifyContent: 'space-between'
   },
   textGenButtonContainer: {
 

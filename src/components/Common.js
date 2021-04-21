@@ -15,7 +15,6 @@ const styles = {
   textInputContainer: {
     diplay: 'flex',
     flexFlow: 'column nowrap',
-    padding: '4px 0'
 
   },
   textInputLabel: {
@@ -43,7 +42,6 @@ export const Button = styled.button`
   background: ${props => props.primary ? colors.primary : colors.background};
   color: ${props => props.primary ? colors.background : colors.primary};
   font-size: 1em;
-  margin: 1em;
   padding: 0.25em 1em;
   border: 2px solid ${colors.primary};
   border-radius: 3px;
@@ -70,7 +68,6 @@ export const TextInput = ({
 
 const Input = styled.input`
   padding: 0.5em;
-  margin: 0.5em;
   min-width: 160px;
   color: ${props => props.textColor || colors.text};
   background: ${colors.secondary};
@@ -90,7 +87,6 @@ export const Dropdown = styled.select`
 
 export const TextRegion = styled.div`
   padding: 0.5em;
-  margin: 0.5em;
   min-height: ${props => props.minHeight ?? '12em'};
   color: ${props => props.textColor || colors.text};
   background: ${colors.secondary};
