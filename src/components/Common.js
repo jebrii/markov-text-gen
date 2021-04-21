@@ -56,7 +56,7 @@ export const TextInput = ({
 
   return (
     <div style={styles.textInputContainer}>
-      {label && <label for={`text-input-${id}`}>
+      {label && <label htmlFor={`text-input-${id}`}>
         <Typography>{label}</Typography>
       </label>}
       <Input id={`text-input-${id}`} {...restOfProps} />
