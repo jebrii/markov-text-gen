@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import SampleTextAdder from './SampleTextAdder'
 
 import { generateRandomStartString, generateText } from '../utils/generateText'
+import { Button, TextInput, Dropdown, Header, colors, TextRegion } from './Common'
 
 const App = () => {
   // == State ==
@@ -41,28 +42,44 @@ const App = () => {
   const clearText = () => setGeneratedText('')
 
   return (
-    <div>
+    <div style={styles.contentContainer}>
+      <Header>Jebrii's Markov Text Generator</Header>
       <SampleTextAdder
         setSampleTexts={setSampleTexts}
       />
 
       <div style={styles.optionsContainer}>
+        <TextInput
+        
+        />
+        <Dropdown
+
+        />
 
       </div>
       <div>
         <div style={styles.textGenButtonContainer}>
-
+          <Button
+            onClick={clearText}
+          >Clear</Button>
+          <Button
+            onClick={generateNewText}
+            primary
+          >Generate</Button>
         </div>
 
-        <div style={styles.generatedTextRegion}>
-          {generatedText}
-        </div>
+        <TextRegion>{generatedText}</TextRegion>
       </div>
     </div>
   )
 }
 
 const styles = {
+  contentContainer: {
+    padding: '10% 20%',
+    backgroundColor: colors.background,
+    diplay: 'flex'
+  },
   optionsContainer: {
 
   },
