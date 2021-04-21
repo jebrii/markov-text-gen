@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 
-import SampleTextAdder from 'src/components/SampleTextAdder'
+import SampleTextAdder from './SampleTextAdder'
 
-import { generateRandomStartString, generateText } from 'src/utils/generateText'
+import { generateRandomStartString, generateText } from '../utils/generateText'
 
 const App = () => {
   // == State ==
