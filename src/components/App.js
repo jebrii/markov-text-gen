@@ -7,10 +7,14 @@ import { Button, TextInput, Dropdown, Header, colors, TextRegion } from './Commo
 
 const App = () => {
   // == State ==
-  const [numSentences, setNumSentences] = useState(1)
-  const [markovOrder, setMarkovOrder] = useState(4)
+  const [numSentences, setNumSentences] = useState('1')
+  console.log("🚀 ~ file: App.js ~ line 11 ~ App ~ numSentences", numSentences)
+  const [markovOrder, setMarkovOrder] = useState('4')
+  console.log("🚀 ~ file: App.js ~ line 13 ~ App ~ markovOrder", markovOrder)
   const [sampleTexts, setSampleTexts] = useState([])
+  console.log("🚀 ~ file: App.js ~ line 15 ~ App ~ sampleTexts", sampleTexts)
   const [startString, setStartString] = useState('The ')
+  console.log("🚀 ~ file: App.js ~ line 17 ~ App ~ startString", startString)
   const [maxLength, setMaxLength] = useState(999)
   const [generatedText, setGeneratedText] = useState('')
 
@@ -50,11 +54,23 @@ const App = () => {
 
       <div style={styles.optionsContainer}>
         <TextInput
-        
+          label="Number of Sentences to Generate"
+          value={numSentences}
+          onChange={(e) => setNumSentences(e.target.value)}
         />
-        <Dropdown
-
+        <TextInput
+          label="Markov Order"
+          value={markovOrder}
+          onChange={(e) => setMarkovOrder(e.target.value)}
+          /> {/* TODO: Hoverable here to explain markov order*/}
+        <TextInput
+          label="Start String"
+          value={startString}
+          onChange={(e) => setStartString(e.target.value)}
         />
+        <Button
+          onClick={generateStartString}
+        >Randomize</Button>
 
       </div>
       <div>
@@ -65,7 +81,7 @@ const App = () => {
           <Button
             onClick={generateNewText}
             primary
-          >Generate</Button>
+          >Generate!</Button>
         </div>
 
         <TextRegion>{generatedText}</TextRegion>
