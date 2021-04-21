@@ -45,6 +45,7 @@ const App = () => {
     <div style={styles.contentContainer}>
       <Header>Jebrii's Markov Text Generator</Header>
       <SampleTextAdder
+        sampleTexts={sampleTexts}
         setSampleTexts={setSampleTexts}
       />
 
