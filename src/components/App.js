@@ -7,32 +7,27 @@ import { Button, TextInput, Header, colors, TextRegion, Typography } from './Com
 
 const App = () => {
   // == State ==
-  const [numSentences, setNumSentences] = useState('1')
-  const [markovOrder, setMarkovOrder] = useState('4')
+  const [numSentences, setNumSentences] = useState(1)
+  const [markovOrder, setMarkovOrder] = useState(4)
   const [sampleTexts, setSampleTexts] = useState([])
   const [startString, setStartString] = useState('The ')
   const [maxLength, setMaxLength] = useState(999)
   const [generatedText, setGeneratedText] = useState('')
 
-  // == Effects ==
-  let trainingData = ''
-  useEffect(() => {
-    trainingData = sampleTexts.join(' ')
-  }, [sampleTexts])
-
   // == Util Functions ==
   const generateStartString = () => {
     const newStartString = generateRandomStartString({
       markovOrder,
-      trainingData
+      trainingData: sampleTexts.join(' ')
     })
+    if (newStartString) setStartString(newStartString)
   }
 
   const generateNewText = () => {
     const newText = generateText({
       markovOrder,
       startString,
-      trainingData,
+      trainingData: sampleTexts.join(' '),
       numSentences,
       maxLength
     })
@@ -53,12 +48,12 @@ const App = () => {
         <TextInput
           label="Number of Sentences to Generate"
           value={numSentences}
-          onChange={(e) => setNumSentences(e.target.value)}
+          onChange={(e) => setNumSentences(Number(e.target.value))}
         />
         <TextInput
           label="Markov Order"
           value={markovOrder}
-          onChange={(e) => setMarkovOrder(e.target.value)}
+          onChange={(e) => setMarkovOrder(Number(e.target.value))}
         /> {/* TODO: Hoverable here to explain markov order*/}
         <div style={{
           display: 'flex',
@@ -76,7 +71,7 @@ const App = () => {
         <TextInput
           label="Max Output Length"
           value={maxLength}
-          onChange={(e) => setMaxLength(e.target.value)}
+          onChange={(e) => setMaxLength(Number(e.target.value))}
         />
 
       </div>

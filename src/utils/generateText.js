@@ -1,4 +1,4 @@
-const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', ' ', '.']
 
 const buildSampleData = (text, order) => {
   const nGramHash = {}
@@ -22,7 +22,6 @@ export const generateText = ({ markovOrder, startString, trainingData, numSenten
     generatedText += generateRandomStartString({ trainingData, markovOrder })
   }
   if (!generatedText.length) throw `Failed to get start string`
-  // process.stdout.write(startString)
 
   let trailingQuotation = false
   for (let i = 0; i <= maxLength - markovOrder; i++) {
@@ -31,12 +30,10 @@ export const generateText = ({ markovOrder, startString, trainingData, numSenten
     nextChar = nextChar.toString()
     generatedText += nextChar
     if (nextChar === '"') trailingQuotation = !trailingQuotation
-    // process.stdout.write(nextChar.toString())
 
     if (['.', '?', '!'].includes(nextChar)) {
       if (trailingQuotation) {
         nextChar += '"'
-        // process.stdout.write('"')
       }
       accumulatedSentences++
     }
