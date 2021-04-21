@@ -32,7 +32,7 @@ export const generateText = ({ markovOrder, startString, trainingData, numSenten
 
   let trailingQuotation = false
   for (let i = 0; i <= maxLength - markovOrder; i++) {
-    currentGram = generatedText.substring(i, i + markovOrder)
+    let currentGram = generatedText.substring(i, i + markovOrder)
     let nextChar = random(nGramsDataset[currentGram]) || getCharacterFromPartialGram({ nGramsDataset, currentGram })
     nextChar = nextChar.toString()
     generatedText += nextChar
@@ -73,7 +73,7 @@ const getCharacterFromPartialGram = ({ nGramsDataset, currentGram }) => {
       break
     }
   }
-  if (!nextChar) nexChar = random(alphabet)
+  if (!nextChar) nextChar = random(alphabet)
   if (currentGram.substring(len - 2, len) === '. ') nextChar = nextChar.toUpper()
   return nextChar.toString()
 }
@@ -83,11 +83,3 @@ const random = (array) => {
   const index = Math.floor(Math.random() * array.length)
   return array[index]
 }
-
-generateText({
-  markovOrder,
-  startString,
-  trainingData,
-  numSentences,
-  maxLength
-})
