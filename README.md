@@ -16,7 +16,7 @@ The app should be more or less self-explanatory. The goal is to build a sample o
 
 ### Standalone (CL)
 
-In the root directory of this project is a file called `markovTextGen.js`. This is the foundation for the app. If you want to use it alone, you can edit to file to enter a value for the `sampleText` variable, then run it with `$node markovTextGen.js`.
+In the root directory of this project is a file called `markovTextGen.js`. This is the foundation for the app. If you want to use it alone, you can edit to file to enter a value for the `sampleText` variable, then run it with `$node markovTextGen.js`. You can also fiddle with the start string, number of sentences, and markov order.
 
 ## Sample Text
 
